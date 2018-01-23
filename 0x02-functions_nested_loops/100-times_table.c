@@ -6,7 +6,6 @@
  * print_times_table: prints times table.
  * If greater than 15 or less than 0, return error.
  *
- * Return:
  */
 void print_times_table(int n)
 {
@@ -48,5 +47,4 @@ void print_times_table(int n)
 			}
 			_putchar('\n');
 		}
-		_putchar('\n');
 }
