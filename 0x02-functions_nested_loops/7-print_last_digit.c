@@ -1,24 +1,16 @@
 #include "holberton.h"
+#include "6-abs.c"
 /**
  * print_last_digit - prints last digit
  * @x:input number
  *
  * print_last_digit: prints last digit of int x
- * Return:@result
+ * Return:x
  */
 int print_last_digit(int x)
 {
-	int result;
-
-	if (x >= 0)
-	{
-		result = x % 10;
-	}
-	if (x < 0)
-	{
-		x = x * -1;
-		result = x % 10;
-	}
-	_putchar(result + '0');
-	return (result);
+	x = _abs(x);
+	x = x % 10;
+	_putchar(x + '0');
+	return (x);
 }
