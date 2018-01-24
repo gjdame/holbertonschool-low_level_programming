@@ -6,8 +6,8 @@
  */
 int main(void)
 {
-	int x;
-	int y;
+	unsigned long x;
+	unsigned long y;
 	int n;
 	unsigned long sum;
 
