@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include "2-strlen.c"
 /**
  * rev_string - prints a string in reverse
  * @s : char pointer
@@ -9,27 +10,18 @@
  */
 void rev_string(char *s)
 {
+	char b;
+	int y;
+	int x;
 	int a;
-	int b;
-	int c;
-	char cpy[100];
 
-	a = 0;
-	if (!(s == NULL))
+	y = _strlen(s);
+	x = _strlen(s) / 2;
+	for (a = 0; a < x; a++)
 	{
-		while (s[a] != '\0')
-		{
-			a++;
-		}
-		for (b = 0; b < a; b++)
-		{
-			cpy[b] = s[b];
-		}
-		c = a - 1;
-		for (b = 0 ; b < a; b++)
-		{
-			s[b] = cpy[c];
-			c--;
-		}
+
+		b = s[a];
+		s[a] = s[y - 1 - a];
+		s[y - 1 - a] = b;
 	}
 }
