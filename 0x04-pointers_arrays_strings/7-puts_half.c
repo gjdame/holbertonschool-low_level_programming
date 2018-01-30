@@ -22,10 +22,10 @@ void puts_half(char *str)
 	}
 	b = a;
 	b = b / 2;
-	while (b < a)
+	while (b <= a)
 	{
-			_putchar(str[b]);
-			b++;
-		}
+		_putchar(str[b]);
+		b++;
+	}
 	_putchar('\n');
 }
