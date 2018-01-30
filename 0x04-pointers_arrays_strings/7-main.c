@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * main - check the code for Holberton School students.
@@ -9,7 +10,7 @@ int main(void)
 {
 	char *str;
 
-	str = "0123456789";
+	str = NULL;
 	puts_half(str);
 	return (0);
 }
