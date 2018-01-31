@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 #include "2-strlen.c"
 /**
  * _atoi - converts string to number
