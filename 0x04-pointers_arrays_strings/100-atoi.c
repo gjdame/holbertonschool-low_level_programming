@@ -22,13 +22,21 @@ int _atoi(char *s)
 	for (i = 0; i < _strlen(s); i++)
 	{
 		if ((s[i] > '9' || s[i] < '0') && check_num > 0)
+		{
 			break;
+		}
 		if (s[i] == '+')
+		{
 			pos_neg++;
+		}
 		if (s[i] == '-')
+		{
 			pos_neg--;
+		}
 		if (s[i] >= '0' && s[i] <= '9')
+		{
 			check_num++;
+		}
 	}
 	i = i - 1;
 	x = 1;
