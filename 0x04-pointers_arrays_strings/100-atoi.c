@@ -11,8 +11,8 @@ int _atoi(char *s)
 {
 	int i;
 	int check_num;
-	unsigned sum;
-	unsigned x;
+	unsigned int sum;
+	unsigned int x;
 	int neg;
 
 	neg = 0;
