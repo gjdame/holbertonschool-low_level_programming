@@ -11,7 +11,7 @@ char *rot13(char *s)
 
 	int i;
 	int j;
-	char a[] = "ANBOCPDQERFSGTHUIVJWKXLYMZN""AOBPCQDRESFTGUHVIWJXKYLZM""anbocpdqerfsgthuivjwkxlymz""naobpcqdresftguhviwjxkylzm";
+	char a[] = "ANBOCPDQERFSGTHUIVJWKXLYMZNAOBPCQDRESFTGUHVIWJXKYLZManbocpdqerfsgthuivjwkxlymznaobpcqdresftguhviwjxkylzm";
 
 	i = 0;
 	while (s[i] != '\0')
