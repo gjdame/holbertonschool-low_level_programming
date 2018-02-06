@@ -43,6 +43,7 @@ unsigned int _strspn(char *s, char *accept)
 				c++;
 				break;
 			}
+			return (0);
 		}
 	}
 	return (c);
