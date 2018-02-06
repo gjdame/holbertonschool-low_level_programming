@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * _strstr - finds 1st occurence of substring
  * @haystack: string to be searched
@@ -13,14 +14,13 @@ char *_strstr(char *haystack, char *needle)
 	int i;
 	int j;
 
-	j = 0;
 	if (needle == '\0')
 		return (haystack);
 	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (haystack[i] == needle[j])
+		if (haystack[i] == needle[0])
 		{
-			for (j = 0; needle[j] != '\0'; j++)
+			for (j = 0; needle[j] != '\0' && haystack[i + j] != '\0'; j++)
 			{
 				if (haystack[i + j] != needle[j])
 					break;
