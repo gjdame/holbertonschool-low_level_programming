@@ -36,7 +36,7 @@ unsigned int _strspn(char *s, char *accept)
 	{
 		for (j = 0; j <= len_s; j++)
 		{
-			if (s[j] == accept[i])
+			if (accept[i] == s[j])
 			{
 				c++;
 				break;

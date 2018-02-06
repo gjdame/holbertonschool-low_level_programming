@@ -36,12 +36,9 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (s[i] == accept[j])
 			{
-				if (p == 0)
-					p = (s + i);
-				if ((s + i) < p)
-					p = (s + j);
+				return(s + i);
 			}
 		}
 	}
-	return (p);
+	return (0);
 }
