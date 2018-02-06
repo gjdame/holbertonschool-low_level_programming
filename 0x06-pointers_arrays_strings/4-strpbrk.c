@@ -13,9 +13,7 @@ char *_strpbrk(char *s, char *accept)
 	int j;
 	int len_s;
 	int len_accept;
-	char *p;
 
-	p = 0;
 	len_s = 0;
 	len_accept = 0;
 	i = 0;
@@ -36,7 +34,7 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (s[i] == accept[j])
 			{
-				return(s + i);
+				return (s + i);
 			}
 		}
 	}
