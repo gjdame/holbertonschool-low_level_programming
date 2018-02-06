@@ -42,8 +42,7 @@ unsigned int _strspn(char *s, char *accept)
 				if
 				break;
 			}
-			if (s[j] == '\0')
-			return (c);
+			return (0);
 		}
 	}
 	return (c);
