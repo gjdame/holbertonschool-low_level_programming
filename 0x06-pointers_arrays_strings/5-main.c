@@ -14,7 +14,5 @@ int main(void)
 
 	t = _strstr(s, f);
 	printf("%s\n", t);
-	/* t = _strstr(f, s); */
-	/* printf("%s\n", t); */
 	return (0);
 }
