@@ -1,7 +1,11 @@
 #include "holberton.h"
 #define NULL 0
 /**
+ * _strstr - locates a substring
+ * @haystack: string to be searched
+ * @needle: substring being searched for
  *
+ * Return: location of beginning of needle in haystack if it exists
  */
 char *_strstr(char *haystack, char *needle)
 {
