@@ -15,9 +15,7 @@ int square(int s, int i)
 		return (-1);
 	if (x == s)
 		return (i);
-	if (x < s)
-		return (square(s, i + 1));
-	return (-1);
+	return (square(s, i + 1));
 }
 /**
  * _sqrt_recursion - returns natural square root of a number
