@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
+ * free_grid - function that frees a 2D grid
+ * @grid: int double pointer grid
+ * @height: int
  */
 void free_grid(int **grid, int height)
 {
