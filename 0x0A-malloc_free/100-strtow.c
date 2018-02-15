@@ -2,20 +2,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * word_count - helper function to iterate through words
- * @a: int
+ * word_count - count # of words to build 2D array
  * @s: char pointer
- * Return: int
+ * Return: num of words
  */
-int word_count (int a, char *s)
+int word_count(char *s)
 {
-	while (s[a] != '\0')
+	int words;
+	int i;
+
+	words = 0;
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (s[a] == ' ')
-			return (a);
-		a++;
+		if (s[i] != ' ' && (s[i + 1] == ' ' || s[i + 1] == '\0'))
+			words++;
+		i++;
 	}
-	return (a);
+	return (words);
 }
 /**
  * strtow - function splits a string into words
@@ -27,20 +31,59 @@ int word_count (int a, char *s)
 char **strtow(char *str)
 {
 	int i;
+	int j;
+	int m;
+	int k;
+	char **s;
 	int words;
 
-	words = 0;
+	words = word_count(str);
+
 	i = 0;
-	while (str[i] != '\0')
+	s = malloc((words + 1) * sizeof(char *));
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	m = 0;
+	while (i < words)
 	{
-		if (str[i] == ' ')
+		j = m;
+		while (str[j] != '\0')
 		{
-			i++;
+			if (str[j] != ' ' && str[j + 1] == ' ')
+			{
+				j = m + 1;
+				break;
+			}
+			j++;
 		}
-		else
-			words++;
-		i = word_count(i, str);
+		s[i] = malloc(j * sizeof(char));
+		i++;
 	}
-	printf("%d\n", words);
-	return (0);
+	i = 0;
+	j = 1;
+	while (i < words)
+	{
+		k = 0;
+		while (str[j] != '\0')
+		{
+			if (str[j] != ' ')
+			{
+				s[i][k] = str[j];
+				j++;
+				k++;
+			}
+			else if (str[j] == ' ' && str[j - 1] != ' ')
+			{
+				j++;
+				k++;
+				break;
+			}
+			else
+				j++;
+		}
+		s[i][k] = '\0';
+		i++;
+	}
+	return (s);
 }
