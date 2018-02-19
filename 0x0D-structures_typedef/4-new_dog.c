@@ -57,15 +57,19 @@ return (NULL);
 
 a = malloc(len(name) * sizeof(char));
 if (a == NULL)
-free(a);
+{
+free(dog);
 return (NULL);
+}
 a = copy(a, name);
 
 b = malloc(len(owner) * sizeof(char));
 if (b == NULL)
+{
+free(dog);
 free(a);
-free(b);
 return (NULL);
+}
 b = copy(b, owner);
 
 dog->name = a;
