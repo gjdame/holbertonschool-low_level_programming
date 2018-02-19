@@ -13,7 +13,7 @@ int i;
 
 i = 0;
 while (x[i] != '\0')
-  i++;
+i++;
 i++;
 
 return (i);
@@ -22,20 +22,20 @@ return (i);
  * copy - copies strings
  * @x: string
  * @y: string
- *
+ * Return: x
  */
 char *copy(char *x, char *y)
 {
-  int i;
+int i;
 
-  i = 0;
-  while (y[i] != '\0')
-    {
-      x[i] = y[i];
-	i++;
-    }
-  x[i] = '\0';
-  return (x);
+i = 0;
+while (y[i] != '\0')
+{
+x[i] = y[i];
+i++;
+}
+x[i] = '\0';
+return (x);
 }
 /**
  * new_dog - creates a new dog
@@ -45,29 +45,32 @@ char *copy(char *x, char *y)
  *
  * Return: pointer to new dog
  */
-dog_t *new_dog(char*name, float age, char *owner)
+dog_t *new_dog(char *name, float age, char *owner)
 {
-  dog_t *dog;
-  char *a;
-  char *b;
+dog_t *dog;
+char *a;
+char *b;
 
-  dog = malloc(sizeof(dog_t));
-  if (dog == NULL)
-    return (NULL);
+dog = malloc(sizeof(dog_t));
+if (dog == NULL)
+return (NULL);
 
-  a = malloc(len(name) * sizeof(char));
-  if (a == NULL)
-    return (NULL);
-  a = copy(a ,name);
-  
-  b = malloc(len(owner) * sizeof(char));
-  if (b == NULL)
-    return (NULL);
-  b = copy(b, owner);
+a = malloc(len(name) * sizeof(char));
+if (a == NULL)
+free(a);
+return (NULL);
+a = copy(a, name);
 
-  dog->name = a;
-  dog->age = age;
-  dog->owner = b;
+b = malloc(len(owner) * sizeof(char));
+if (b == NULL)
+free(a);
+free(b);
+return (NULL);
+b = copy(b, owner);
 
-  return (dog);
+dog->name = a;
+dog->age = age;
+dog->owner = b;
+
+return (dog);
 }
