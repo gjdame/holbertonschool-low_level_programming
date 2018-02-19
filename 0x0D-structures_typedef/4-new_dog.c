@@ -56,9 +56,13 @@ dog_t *new_dog(char*name, float age, char *owner)
     return (NULL);
 
   a = malloc(len(name) * sizeof(char));
+  if (a == NULL)
+    return (NULL);
   a = copy(a ,name);
   
   b = malloc(len(owner) * sizeof(char));
+  if (b == NULL)
+    return (NULL);
   b = copy(b, owner);
 
   dog->name = name;
