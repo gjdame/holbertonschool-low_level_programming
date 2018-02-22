@@ -13,7 +13,6 @@ int arg1;
 int arg2;
 int (*oper)(int, int);
 int result;
-char *check = argv[2];
 
 oper = get_op_func(argv[2]);
 
@@ -32,7 +31,7 @@ printf("Error\n");
 exit(99);
 }
 
-if ((*check == '/' || *check == '%') && argv[3] == 0)
+if ((*argv[2] == '/' || *argv[2] == '%') && arg2 == 0)
 {
 printf("Error\n");
 exit(100);
