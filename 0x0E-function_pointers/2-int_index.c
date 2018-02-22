@@ -17,8 +17,8 @@ return (-1);
 i = 0;
 while (i < size)
 {
-if (cmp(array[i]) != 0)
-return (i)
+if (cmp(array[i]) == 0)
+return (i);
 i++;
 }
 return (-1);
