@@ -14,6 +14,7 @@ printf("Error\n");
 exit(1);
 }
 char *s = (char *) &main;
+
 int num = atoi(argv[1]);
 int x;
 
