@@ -31,11 +31,13 @@ if (oper == NULL)
 printf("Error\n");
 exit(99);
 }
+
 if ((*check == '/' || *check == '%') && argv[3] == 0)
 {
 printf("Error\n");
 exit(100);
 }
+
 result = oper(arg1, arg2);
 printf("%d\n", result);
 return (0);
