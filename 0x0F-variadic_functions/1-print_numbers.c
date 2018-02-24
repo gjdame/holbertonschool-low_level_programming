@@ -20,9 +20,13 @@ while (i < n)
 {
 printf("%d", va_arg(list, int));
 if (i < n - 1 && s != NULL)
+{
 printf("%s", s);
-
+}
+else
+{
 printf("");
+}
 i++;
 }
 printf("\n");
