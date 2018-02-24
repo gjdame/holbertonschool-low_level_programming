@@ -35,10 +35,10 @@ if (*prints[j].c == format[i])
 {
 printf("%s", ptr);
 prints[j].f(list);
+ptr = ptr2;
 }
 j++;
 }
-ptr = ptr2;
 i++;
 }
 printf("\n");
