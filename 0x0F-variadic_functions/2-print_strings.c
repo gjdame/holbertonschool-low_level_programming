@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
-* void print_strings - prints print_strings
+* print_strings - prints strings in arguments
 * @separator: string
 * @n: int
 */
@@ -23,7 +23,7 @@ if (tmp == NULL)
 printf("(nil)");
 else
 printf("%s", tmp);
-if (i < n - 1)
+if (i < n - 1 && s != NULL)
 printf("%s", s);
 i++;
 }
