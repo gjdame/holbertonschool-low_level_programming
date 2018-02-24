@@ -77,6 +77,9 @@ void print_s(va_list list)
 char *tmp;
 tmp = va_arg(list, char *);
 if (tmp == NULL)
+{
 printf("(nil)");
+return;
+}
 printf("%s", tmp);
 }
