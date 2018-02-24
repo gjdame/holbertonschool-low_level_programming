@@ -1,6 +1,11 @@
 #ifndef VARIADIC_FUNCTIONS_H
 #define VARIADIC_FUNCTIONS_H
 #include <stdarg.h>
+/**
+* struct print_stuff - struct for #3
+* @c: char
+* @f: function
+*/
 struct print_stuff
 {
 char *c;
