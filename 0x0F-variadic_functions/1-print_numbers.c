@@ -12,6 +12,8 @@ va_list list;
 unsigned int i;
 const char *s = separator;
 
+if (s == NULL)
+s = "";
 
 va_start(list, n);
 
@@ -19,14 +21,9 @@ i = 0;
 while (i < n)
 {
 printf("%d", va_arg(list, int));
-if (i < n - 1 && s != NULL)
-{
+if (i < n - 1)
 printf("%s", s);
-}
-else
-{
-printf("");
-}
+
 i++;
 }
 printf("\n");
