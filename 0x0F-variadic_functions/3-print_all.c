@@ -13,7 +13,6 @@ int i;
 int j;
 char *ptr = "";
 char *ptr2 = ", ";
-
 va_list list;
 
 print_t prints[] = {
@@ -27,7 +26,7 @@ print_t prints[] = {
 va_start(list, format);
 
 i = 0;
-while (format[i])
+while (format != NULL && format[i])
 {
 j = 0;
 while (prints[j].c != '\0')
