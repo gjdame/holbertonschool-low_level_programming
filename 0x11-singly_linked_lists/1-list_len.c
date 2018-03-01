@@ -1,4 +1,9 @@
 #include "lists.h"
+/**
+ * list_len - list length
+ * @h: constant pointer
+ * Return: size of s
+ */
 size_t list_len(const list_t *h)
 {
 	int n;
