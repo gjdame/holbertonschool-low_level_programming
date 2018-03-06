@@ -12,7 +12,7 @@ size_t print_listint_safe(const listint_t *h)
 	const listint_t *current;
 
 	if (h == NULL)
-		exit (98);
+		exit(98);
 
 	tmp = h;
 
@@ -25,15 +25,15 @@ size_t print_listint_safe(const listint_t *h)
 		{
 			if (current == tmp)
 			{
-				printf("-> [%p] %d\n",(void *)  &tmp, tmp->n);
+				printf("-> [%p] %d\n", (void *)  &tmp, tmp->n);
 				return (i);
 			}
 			current = current->next;
 			j++;
 		}
-		printf("[%p] %d\n",(void *) &tmp->next,  tmp->n);
+		printf("[%p] %d\n", (void *) &tmp->next, tmp->n);
 		tmp = tmp->next;
 		i++;
 	}
-	return (0);
+	return (i);
 }
