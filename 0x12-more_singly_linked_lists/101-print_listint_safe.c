@@ -11,9 +11,6 @@ size_t print_listint_safe(const listint_t *h)
 	const listint_t *tmp;
 	const listint_t *current;
 
-	if (h == NULL)
-		exit(98);
-
 	tmp = h;
 
 	i = 0;
