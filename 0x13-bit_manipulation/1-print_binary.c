@@ -5,7 +5,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int mask = n;
+	unsigned long int mask = 4294967296;
 	if (n == 1)
 	{
 		_putchar('1');
@@ -15,6 +15,13 @@ void print_binary(unsigned long int n)
 	{
 		_putchar('0');
 		return;
+	}
+	while (mask > 0)
+	{
+		if ((n & mask) == 0)
+			mask = mask >> 1;
+		else
+			break;
 	}
 	while (mask > 0)
 	{
