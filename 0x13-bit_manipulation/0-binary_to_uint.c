@@ -5,10 +5,10 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i;
+	unsigned int i;
 	int count;
-	int sum;
-	int x;
+	unsigned int sum;
+	unsigned int x;
 
 	i = 0;
 	while (b[i] != '\0')
