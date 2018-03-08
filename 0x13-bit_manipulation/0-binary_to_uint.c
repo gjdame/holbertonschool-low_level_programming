@@ -10,9 +10,20 @@ unsigned int binary_to_uint(const char *b)
 	int sum;
 	int x;
 
+	i = 0;
+	while (b[i] != '\0')
+	{
+		if (b[i] == '1')
+			i++;
+		else if	(b[i] == '0')
+			i++;
+		else
+			return (0);
+	}
+
 	sum = 0;
 	x = 1;
-	i = 0;
+
 	while (b[count] != '\0')
 	{
 		count++;
@@ -24,10 +35,9 @@ unsigned int binary_to_uint(const char *b)
 		x = x * 2;
 		count--;
 	}
+	i = 0;
 	while (b[i] != '\0')
 	{
-		if (b[i] > '1' || b[i] < '0')
-			return(0);
 		sum += ((b[i] - '0') * x);
 		x = x / 2;
 		i++;
