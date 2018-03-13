@@ -9,16 +9,9 @@ int main(int ac, char **av)
 {
 	char *file_to = av[2];
 	char *file_from = av[1];
-	char *buf;
+	char buf[1024];
 	int i;
 	int fd, fd2;
-
-		buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		exit(99);
-	}
 
 	if (ac != 3)
 	{
@@ -31,6 +24,7 @@ int main(int ac, char **av)
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
+		close(fd2);
 		exit(98);
 	}
 
@@ -40,7 +34,7 @@ int main(int ac, char **av)
 		if (fd2 == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		free(buf);
+		close(fd);
 		exit(99);
 		}
 	}
@@ -48,16 +42,14 @@ int main(int ac, char **av)
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[1]);
-		free(buf);
+		close(fd2);
 		exit(100);
 	}
 	close(fd2);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[2]);
-		free(buf);
 		exit(100);
 	}
-	free(buf);
 	return (0);
 }
