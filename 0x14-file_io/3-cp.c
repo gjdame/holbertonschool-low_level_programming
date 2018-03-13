@@ -40,6 +40,7 @@ int main(int ac, char **av)
 			exit(98);
 		}
 		i = write(fd2, buf, i);
+
 		if (i == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
@@ -47,8 +48,7 @@ int main(int ac, char **av)
 		}
 	}
 
-
-	close(fd);
+	fd = close(fd);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
@@ -56,7 +56,7 @@ int main(int ac, char **av)
 		exit(100);
 	}
 
-	close(fd2);
+	fd2 = close(fd2);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
