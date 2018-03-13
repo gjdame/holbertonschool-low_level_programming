@@ -7,8 +7,6 @@
  */
 int main(int ac, char **av)
 {
-	char *file_to = av[2];
-	char *file_from = av[1];
 	char buf[1024];
 	int i;
 	int fd, fd2;
@@ -19,13 +17,13 @@ int main(int ac, char **av)
 		exit(97);
 	}
 
-	fd = open(file_from, O_RDONLY);
+	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
 		exit(98);
 	}
-	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
