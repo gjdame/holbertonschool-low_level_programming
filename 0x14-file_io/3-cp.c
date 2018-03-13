@@ -29,18 +29,19 @@ int main(int ac, char **av)
 
 	while ((i = read(fd, buf, 1024)) > 0)
 	{
-		write(fd2, buf, i);
-		if (fd2 == -1)
+			if (i == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
+				exit(98);
+			}
+		i = write(fd2, buf, i);
+		if (i == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
 		exit(99);
 		}
 	}
-	if (i == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
-		exit(98);
-	}
+
 
 	close(fd);
 	if (fd == -1)
