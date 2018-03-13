@@ -9,11 +9,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	int writen;
-	int len;
-
-	len = 0;
-	while (text_content[len] != '\0')
-		len++;
+	int len = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -25,9 +21,12 @@ int create_file(const char *filename, char *text_content)
 		if (text_content == NULL)
 			return (1);
 
-	writen = write(fd, text_content, len);
-	if (writen == -1)
-		return (-1);
+		while (text_content[len] != '\0')
+			len++;
+
+		writen = write(fd, text_content, len);
+		if (writen == -1)
+			return (-1);
 
 	close(fd);
 
