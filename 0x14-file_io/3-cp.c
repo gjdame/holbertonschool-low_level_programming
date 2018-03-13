@@ -24,7 +24,6 @@ int main(int ac, char **av)
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
-		close(fd2);
 		exit(98);
 	}
 
@@ -34,22 +33,29 @@ int main(int ac, char **av)
 		if (fd2 == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		close(fd);
 		exit(99);
 		}
 	}
+	if (i == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
+		exit(98);
+	}
+
 	close(fd);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
 		close(fd2);
 		exit(100);
 	}
+
 	close(fd2);
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
 		exit(100);
 	}
+
 	return (0);
 }
