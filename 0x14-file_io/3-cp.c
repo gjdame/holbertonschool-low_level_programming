@@ -20,20 +20,25 @@ int main(int ac, char **av)
 	}
 
 	fd = open(file_from, O_RDONLY);
-	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
 		exit(98);
 	}
+	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd2 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
+		exit(99);
+	}
 
 	while ((i = read(fd, buf, 1024)) > 0)
 	{
-			if (i == -1)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
-				exit(98);
-			}
+		if (i == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
+			exit(98);
+		}
 		i = write(fd2, buf, i);
 		if (i == -1)
 		{
