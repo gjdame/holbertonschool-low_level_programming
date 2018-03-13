@@ -21,19 +21,17 @@ int main(int ac, char **av)
 
 	fd = open(file_from, O_RDONLY);
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
+		exit(98);
+	}
 
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
 		exit(99);
-	}
-
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
-		free(buf);
-		exit(98);
 	}
 
 	while ((i = read(fd, buf, 1024)) > 0)
