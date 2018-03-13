@@ -47,14 +47,14 @@ int main(int ac, char **av)
 	close(fd);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[1]);
 		free(buf);
 		exit(100);
 	}
 	close(fd2);
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s", av[2]);
 		free(buf);
 		exit(100);
 	}
