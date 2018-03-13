@@ -13,6 +13,13 @@ int main(int ac, char **av)
 	int i;
 	int fd, fd2;
 
+		buf = malloc(sizeof(char) * 1024);
+	if (buf == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
+		exit(99);
+	}
+
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -25,13 +32,6 @@ int main(int ac, char **av)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s", av[1]);
 		exit(98);
-	}
-
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		exit(99);
 	}
 
 	while ((i = read(fd, buf, 1024)) > 0)
