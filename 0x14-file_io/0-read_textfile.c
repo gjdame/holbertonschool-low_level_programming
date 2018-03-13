@@ -1,8 +1,10 @@
 #include "holberton.h"
 /**
- *
- *
- *
+ * read_textfile - reads text of input file and outputs to standard output
+ * Only prints up to buffer size
+ * @filename: name of txt file
+ * @letters: num of letters to print
+ * Return: num of chars printed
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -15,7 +17,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDWR);
 
-	if(fd == -1)
+	if (fd == -1)
 	{
 		return (0);
 	}
@@ -24,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	write(1, buf, i);
 
-	close (fd);
+	close(fd);
 
 	return (i);
 }

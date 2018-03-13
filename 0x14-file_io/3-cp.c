@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
- *
+ * main - copies contents of one file to another
+ * @ac: num of arguments, must be exactly 3
+ * @av: file names
+ * Return: 0
  */
 int main(int ac, char **av)
 {
@@ -19,7 +20,7 @@ int main(int ac, char **av)
 	}
 
 	fd = open(file_from, O_RDWR);
-	fd2 = open(file_to, O_CREAT| O_RDWR | O_TRUNC, 0664);
+	fd2 = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
 	if (fd == -1)
 	{
 		dprintf(2, "Error: Can't read from %s", av[1]);
@@ -28,20 +29,20 @@ int main(int ac, char **av)
 
 	while ((i = read(fd, buf, 1024)) > 0)
 	{
-		write (fd2, buf, i);
+		write(fd2, buf, i);
 		if (fd2 == -1)
 		{
 		dprintf(2, "Error: Can't write to %s", av[2]);
 		exit(99);
 		}
 	}
-	close (fd);
+	close(fd);
 	if (fd == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d", fd);
 		exit(100);
 	}
-	close (fd2);
+	close(fd2);
 	if (fd2 == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d", fd2);

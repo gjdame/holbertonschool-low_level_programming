@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
- *
+ * create_file - creates a file and fills it with text content
+ * @filename: name of file created
+ * @text_content: text of file created
+ * Return: 1 if success
  */
 int create_file(const char *filename, char *text_content)
 {
@@ -26,7 +27,7 @@ int create_file(const char *filename, char *text_content)
 	if (writen == -1)
 		return (-1);
 
-	close (fd);
+	close(fd);
 
 	return (1);
 }
