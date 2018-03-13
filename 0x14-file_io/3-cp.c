@@ -32,17 +32,12 @@ int main(int ac, char **av)
 
 	while ((i = read(fd, buf, 1024)) > 0)
 	{
-		if (i == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", av[1]);
-			exit(98);
-		}
 		i = write(fd2, buf, i);
 
 		if (i == -1)
 		{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
 		}
 	}
 	if (i == -1)
@@ -55,7 +50,6 @@ int main(int ac, char **av)
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		close(fd2);
 		exit(100);
 	}
 
