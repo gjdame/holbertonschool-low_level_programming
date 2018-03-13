@@ -19,8 +19,8 @@ int main(int ac, char **av)
 		exit(97);
 	}
 
-	fd = open(file_from, O_RDWR);
-	fd2 = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
+	fd = open(file_from, O_RDONLY);
+	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
@@ -42,7 +42,7 @@ int main(int ac, char **av)
 		if (fd2 == -1)
 		{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", av[2]);
-		free (buf);
+		free(buf);
 		exit(99);
 		}
 	}
@@ -50,7 +50,7 @@ int main(int ac, char **av)
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
-		free (buf);
+		free(buf);
 		exit(100);
 	}
 	close(fd2);
@@ -60,5 +60,6 @@ int main(int ac, char **av)
 		free(buf);
 		exit(100);
 	}
+	free(buf);
 	return (0);
 }
