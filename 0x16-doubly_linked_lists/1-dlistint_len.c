@@ -1,10 +1,10 @@
 #include "lists.h"
 /**
- * listint_len - list number of elements
+ * dlistint_len - list number of elements
  * @h: pointer to first node on list
  * Return: i number of elements
  */
-size_t listint_len(const listint_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
 	int i;
 

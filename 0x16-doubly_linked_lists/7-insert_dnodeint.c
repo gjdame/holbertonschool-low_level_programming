@@ -1,15 +1,15 @@
 #include "lists.h"
 /**
- * insert_nodeint_at_index - insert node a specific spot
+ * insert_dnodeint_at_index - insert node a specific spot
  * @head: pointer to first node
  * @idx: place on list to be inserted
  * @n: data inside new node
  * Return: pointer to head
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
 {
-	listint_t *tmp;
-	listint_t *new_node;
+	dlistint_t *tmp;
+	dlistint_t *new_node;
 	unsigned int i;
 
 	tmp = *head;
@@ -17,7 +17,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (head == NULL)
 		return (NULL);
 
-	new_node = malloc(sizeof(listint_t));
+	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
 		return (NULL);
 
@@ -26,6 +26,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (idx == 0)
 	{
 		new_node->next = tmp;
+		new_node->prev = NULL;
+		(*head)->prev = new_node;
 		*head = new_node;
 		return (*head);
 	}
@@ -43,7 +45,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 
 	new_node->next = tmp->next;
+	new_node->prev = tmp;
 	tmp->next = new_node;
+	if (tmp->next != NULL)
+		tmp->next->prev = new_node;
 
 	return (new_node);
 }

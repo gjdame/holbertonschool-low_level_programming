@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * print_listint - prints all elements of listint
+ * print_dlistint - prints all elements of dlistint
  * @h: pointer to first node of list
  * Return: num of elements
  */

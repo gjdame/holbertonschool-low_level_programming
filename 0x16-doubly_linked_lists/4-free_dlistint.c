@@ -1,12 +1,12 @@
 #include "lists.h"
 /**
- * free_listint - free a list
+ * free_dlistint - free a list
  * @head: pointer to first node
  *
  */
-void free_listint(listint_t *head)
+void free_dlistint(dlistint_t *head)
 {
-	listint_t *tmp;
+	dlistint_t *tmp;
 
 	while (head != NULL)
 	{
