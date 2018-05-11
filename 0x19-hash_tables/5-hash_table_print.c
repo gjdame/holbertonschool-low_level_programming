@@ -1,13 +1,12 @@
 #include "hash_tables.h"
 /**
- *
- *
- *
+ * hash_table_print - print a hash table
+ * @ht: hash table
  *
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	hash_table_t *tmp = (hash_table_t*) ht;
+	hash_table_t *tmp = (hash_table_t *) ht;
 	unsigned int i;
 	int flag = 0;
 	hash_node_t *runner;
@@ -17,10 +16,10 @@ void hash_table_print(const hash_table_t *ht)
 	while (i < ht->size)
 	{
 		runner = tmp->array[i];
-		while(runner != NULL)
+		while (runner != NULL)
 		{
 			printf("\'%s\': \'%s\'", runner->key, runner->value);
-			if(runner->next != NULL)
+			if (runner->next != NULL)
 				printf(", ");
 			runner = runner->next;
 			flag++;

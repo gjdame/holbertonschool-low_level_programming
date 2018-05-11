@@ -1,8 +1,7 @@
 #include "hash_tables.h"
 /**
- *
- *
- *
+ * hash_table_delete - delete hash table
+ * @ht: hash table
  *
  */
 void hash_table_delete(hash_table_t *ht)
@@ -12,10 +11,10 @@ void hash_table_delete(hash_table_t *ht)
 	hash_table_t *tmp = ht;
 
 	i = 0;
-	while(i < ht->size)
+	while (i < ht->size)
 	{
 		runner = tmp->array[i];
-		while(runner != NULL)
+		while (runner != NULL)
 		{
 			free(runner->key);
 			free(runner->value);
