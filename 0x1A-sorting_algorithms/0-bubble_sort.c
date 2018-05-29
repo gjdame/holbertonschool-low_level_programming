@@ -1,17 +1,17 @@
 #include "sort.h"
 
-
+/**
+ * bubble_sort - sort using bubble sort method
+ * @array: input array of list
+ * @size: input size of array
+ */
 void bubble_sort(int *array, size_t size)
 {
-	unsigned int i = 0;
-	int holder = 0;
-	int flag;
-	unsigned int new_size = size;
+	int i = 0, holder = 0, s_holder = size, flag = 0;
 
-	if(size == 0 || size == 1)
+	if (size == 0 || size == 1)
 		return;
-
-	while (i < new_size)
+	while (i < s_holder)
 	{
 		flag = 0;
 		if (array[i] > array[i + 1])
@@ -22,11 +22,11 @@ void bubble_sort(int *array, size_t size)
 			flag = 1;
 			print_array(array, size);
 		}
-		if (i == (new_size - 2))
+		if (i == s_holder - 2)
 		{
 			if (flag == 0)
 				break;
-			new_size--;
+			s_holder--;
 			i = -1;
 		}
 		i++;
