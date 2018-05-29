@@ -3,6 +3,7 @@
 /**
  * swapper - swapping a linked list
  * @holder: current location of linked list
+ * @list: double pointer to list
  * Return: return the new pointer
  */
 listint_t *swapper(listint_t *holder, listint_t **list)
@@ -63,7 +64,7 @@ void cocktail_sort_list(listint_t **list)
 				print_list(*list);
 				flag = 1;
 			}
-			else if(current->prev != NULL)
+			else if (current->prev != NULL)
 				current = current->prev;
 		}
 
