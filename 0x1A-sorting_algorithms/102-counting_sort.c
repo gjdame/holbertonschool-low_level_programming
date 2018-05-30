@@ -33,11 +33,11 @@ void counting_sort(int *array, size_t size)
 	}
 
 	i = 0;
-        while (i < size)
-        {
-                copy[i] = array[i];
-                i++;
-        }
+	while (i < size)
+	{
+		copy[i] = array[i];
+		i++;
+	}
 
 	i = 0;
 	while (i < max)
