@@ -48,7 +48,6 @@ void count_sort(int *array, size_t size, int pow)
 		i++;
 	}
 
-	print_array(array, size);
 	i = size - 1;
 	while ((int)i >= 0)
 	{
@@ -74,6 +73,7 @@ void radix_sort(int *array, size_t size)
 	while (max / pow > 0)
 	{
 		count_sort(array, size, pow);
+		print_array(array, size);
 		pow = pow * 10;
 	}
 }
