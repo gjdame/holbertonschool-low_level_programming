@@ -1,23 +1,29 @@
 #include "sort.h"
 /**
- * counting_sort - sorting array of ints
+ * max_num - max number in an array
  * @array: array of ints
  * @size: size of array
- *
+ * Return: max number
  */
 int max_num(int *array, size_t size)
 {
 	unsigned int i = 0;
-        int max = 0;
+	int max = 0;
 
 	while (i < size)
-        {
-                if (array[i] > (int)max)
-                        max = array[i];
-                i++;
-        }
-	return(max);
+	{
+		if (array[i] > (int)max)
+			max = array[i];
+		i++;
+	}
+	return (max);
 }
+/**
+ * count_sort - counting sort algorithm
+ * @array: array of ints
+ * @size: size of array
+ * @pow: power of 10
+ */
 void count_sort(int *array, size_t size, int pow)
 {
 	int *copy;
@@ -29,11 +35,11 @@ void count_sort(int *array, size_t size, int pow)
 		return;
 
 	i = 0;
-        while(i < 10)
-        {
-                counting[i] = 0;
-                i++;
-        }
+	while (i < 10)
+	{
+		counting[i] = 0;
+		i++;
+	}
 
 	i = 0;
 	while (i < size)
@@ -58,13 +64,18 @@ void count_sort(int *array, size_t size, int pow)
 		i--;
 	}
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		array[i] = copy[i];
 		i++;
 	}
 	free(copy);
 }
+/**
+ * radix_sort - radix sorting algorithm
+ * @array: array of ints
+ * @size: size of array
+ */
 void radix_sort(int *array, size_t size)
 {
 	int pow = 1;
