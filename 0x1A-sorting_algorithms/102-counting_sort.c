@@ -8,14 +8,14 @@
 void counting_sort(int *array, size_t size)
 {
 	int *copy, *counting;
-	unsigned int max, i, j, tmp;
+	unsigned int max, i, tmp;
 
 	if (size == 0 || size == 1)
 		return;
 
 	i = 0;
 	max = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
 		if (array[i] > (int)max)
 			max = array[i];
@@ -32,18 +32,18 @@ void counting_sort(int *array, size_t size)
 		return;
 	}
 
-	j = 0;
-	while (j < max)
-	{
-		counting[j] = 0;
-		j++;
-	}
+	i = 0;
+        while (i < size)
+        {
+                copy[i] = array[i];
+                i++;
+        }
 
-	j = 0;
-	while (j < size)
+	i = 0;
+	while (i < max)
 	{
-		copy[j] = array[j];
-		j++;
+		counting[i] = 0;
+		i++;
 	}
 
 	i = 0;
@@ -54,13 +54,14 @@ void counting_sort(int *array, size_t size)
 	}
 
 	i = 1;
-
 	while (i < max)
 	{
 		counting[i] += counting[i - 1];
 		i++;
 	}
+
 	print_array(counting, max);
+
 	i = 0;
 	while (i < size)
 	{
