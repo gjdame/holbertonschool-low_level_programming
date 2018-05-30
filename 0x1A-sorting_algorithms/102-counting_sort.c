@@ -31,6 +31,7 @@ void counting_sort(int *array, size_t size)
 		free(counting);
 		return;
 	}
+
 	j = 0;
 	while (j < max)
 	{
@@ -48,18 +49,15 @@ void counting_sort(int *array, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		tmp = array[i];
-		counting[tmp]++;
+		counting[array[i]]++;
 		i++;
 	}
 
-	i = 0;
+	i = 1;
 	total = 0;
 	while (i < max)
 	{
-		tmp = counting[i];
-		total += tmp;
-		counting[i] = total;
+		counting[i] += counting[i - 1];
 		i++;
 	}
 	print_array(counting, max);
