@@ -8,7 +8,7 @@
 void counting_sort(int *array, size_t size)
 {
 	int *copy, *counting;
-	unsigned int max, i, j, tmp, total;
+	unsigned int max, i, j, tmp;
 
 	if (size == 0 || size == 1)
 		return;
@@ -54,7 +54,7 @@ void counting_sort(int *array, size_t size)
 	}
 
 	i = 1;
-	total = 0;
+
 	while (i < max)
 	{
 		counting[i] += counting[i - 1];
