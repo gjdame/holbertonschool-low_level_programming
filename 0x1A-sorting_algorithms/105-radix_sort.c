@@ -22,12 +22,13 @@ void count_sort(int *array, size_t size, int pow)
 {
 	int *copy;
 	int counting[10];
-	unsigned int i;
+	unsigned int i, tmp;
 
 	copy = malloc(size * sizeof(int));
+	if (copy == NULL)
+		return;
 
 	i = 0;
-
         while(i < 10)
         {
                 counting[i] = 0;
@@ -51,8 +52,9 @@ void count_sort(int *array, size_t size, int pow)
 	i = size - 1;
 	while ((int)i >= 0)
 	{
-		copy[counting[(array[i] / pow) % 10] - 1] = array[i];
-		counting[(array[i] / pow) % 10]--;
+		tmp = (array[i] / pow) % 10;
+		copy[counting[tmp] - 1] = array[i];
+		counting[tmp]--;
 		i--;
 	}
 	i = 0;
