@@ -1,8 +1,10 @@
 #include "sort.h"
 /**
- *
- *
- *
+ * heapify - puts array in a heap
+ * @array: array of ints
+ * @min: min in array
+ * @max: max int in array
+ * @size: size of array
  */
 void heapify(int *array, int min, int max, size_t size)
 {
@@ -26,13 +28,17 @@ void heapify(int *array, int min, int max, size_t size)
 		heapify(array, root, max, size);
 	}
 }
-
+/**
+ * heap_sort - heap sort algorithm
+ * @array: array of ints
+ * @size: size of array
+ */
 void heap_sort(int *array, size_t size)
 {
 	int i;
 	int tmp;
 
-	for (i = size/2 - 1; i >= 0; i--)
+	for (i = size / 2 - 1; i >= 0; i--)
 		heapify(array, i, size, size);
 
 	i = size - 1;
