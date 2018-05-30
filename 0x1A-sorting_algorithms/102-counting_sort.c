@@ -8,21 +8,29 @@
 void counting_sort(int *array, size_t size)
 {
 	int *copy, *counting;
-	int max, i, j, tmp, total;
-	int _size = size;
+	unsigned int max, i, j, tmp, total;
+
+	if (size == 0 || size == 1)
+		return;
 
 	i = 0;
 	max = 0;
-	while (i < _size - 1)
+	while (i < size - 1)
 	{
-		if (array[i] > max)
+		if (array[i] > (int)max)
 			max = array[i];
 		i++;
 	}
 	max++;
 	counting = malloc(max * sizeof(int));
+	if (counting == NULL)
+		return;
 	copy = malloc(size * sizeof(int));
-
+	if (copy == NULL)
+	{
+		free(counting);
+		return;
+	}
 	j = 0;
 	while (j < max)
 	{
@@ -31,14 +39,14 @@ void counting_sort(int *array, size_t size)
 	}
 
 	j = 0;
-	while (j < _size)
+	while (j < size)
 	{
 		copy[j] = array[j];
 		j++;
 	}
 
 	i = 0;
-	while (i < _size)
+	while (i < size)
 	{
 		tmp = array[i];
 		counting[tmp]++;
@@ -56,11 +64,13 @@ void counting_sort(int *array, size_t size)
 	}
 	print_array(counting, max);
 	i = 0;
-	while (i < _size)
+	while (i < size)
 	{
 		tmp = copy[i];
 		array[counting[tmp] - 1] = tmp;
 		counting[tmp]--;
 		i++;
 	}
+	free(counting);
+	free(copy);
 }
