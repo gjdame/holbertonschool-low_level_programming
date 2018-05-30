@@ -61,6 +61,7 @@ void count_sort(int *array, size_t size, int pow)
 		array[i] = copy[i];
 		i++;
 	}
+	free(copy);
 }
 void radix_sort(int *array, size_t size)
 {
