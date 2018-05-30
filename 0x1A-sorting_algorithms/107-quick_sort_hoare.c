@@ -10,31 +10,38 @@
  */
 int partition(int *array, size_t low, size_t high, size_t size)
 {
-	int pivot = array[low];
+	int pivot = array[high];
 	int x = low - 1;
 	int y = high + 1;
 	int tmp;
 
-	while(1)
+	while (1)
 	{
-		do
-		{
+		do {
 			x++;
-		}while(array[x] < pivot);
+		} while (array[x] < pivot);
 
-		do
-		{
+		do {
 			y--;
-		}while(array[y] > pivot);
+		} while (array[y] > pivot);
 
-		if (x >= y)
+		if (x > y)
 			return (y);
+		if (x == y)
+			return (y - 1);
 		tmp = array[x];
 		array[x] = array[y];
 		array[y] = tmp;
 		print_array(array, size);
 	}
 }
+/**
+ * quicksort - sory array using quick sort method
+ * @array: input array
+ * @low: minimum point
+ * @high: maximum point
+ * @size: input size of array
+ */
 void quicksort(int *array, int low, int high, size_t size)
 {
 
@@ -49,14 +56,14 @@ void quicksort(int *array, int low, int high, size_t size)
 }
 
 /**
- * quick_sort - sory array using quick sort method
+ * quick_sort_hoare - sory array using quick sort method
  * @array: input array
  * @size: input size of array
  */
 void quick_sort_hoare(int *array, size_t size)
 {
 	unsigned int low = 0;
-        unsigned int high = size - 1;
+	unsigned int high = size - 1;
 
 	if (size == 0 || size == 1)
 		return;
