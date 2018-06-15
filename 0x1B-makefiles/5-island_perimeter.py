@@ -22,14 +22,15 @@ def island_perimeter(grid):
                     if y - 1 >= 0:
                         if grid[x][y - 1] == 1:
                             touches += 1
-                    if y + 1 >= 0:
+                    if y + 1 < width:
                         if grid[x][y + 1] == 1:
                             touches += 1
-                    if x + 1 <= height:
+                    if x + 1 < height:
                         if grid[x + 1][y] == 1:
                             touches += 1
                     if x - 1 >= 0:
                         if grid[x - 1][y] == 1:
                             touches += 1
+        print(touches)
         count = count * 4 - touches
         return(count)
