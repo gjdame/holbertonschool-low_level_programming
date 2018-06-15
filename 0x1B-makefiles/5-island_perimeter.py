@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
+
 def island_perimeter(grid):
+    """
+       calculates perimeter of the island of a matrix
+       land consists of 1's
+       water consists of 0's
+    """
     count = 0
     touches = 0
     height = 0
