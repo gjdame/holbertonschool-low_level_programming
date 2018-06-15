@@ -4,12 +4,15 @@ OBJ= $(SRC:.c=.o)
 NAME=holberton
 RM=rm
 
-all:
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+all: $(OBJ)
 	$(CC) $(SRC) -o $(NAME)
 clean:
 	$(RM) -f $(OBJ)
 oclean:
-	$(RM) -f *~ *SWP $(NAME)
+	$(RM) -f $(OBJ)
 fclean:
 	clean oclean
 re:
