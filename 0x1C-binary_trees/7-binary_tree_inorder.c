@@ -1,9 +1,8 @@
 #include "binary_trees.h"
 /**
-*
-*
-*
-*
+* binary_tree_inorder - inorder traversal
+* @tree: root node
+* @func: function pointer
 */
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
