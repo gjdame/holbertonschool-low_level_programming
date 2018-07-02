@@ -1,8 +1,7 @@
 #include "binary_trees.h"
 /**
-*
-*
-*
+* binary_tree_delete - delete a binary tree
+* @tree: address of root
 *
 */
 void binary_tree_delete(binary_tree_t *tree)

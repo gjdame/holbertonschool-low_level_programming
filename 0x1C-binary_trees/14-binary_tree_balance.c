@@ -1,9 +1,8 @@
 #include "binary_trees.h"
 /**
-*
-*
-*
-*
+* binary_tree_balance - checks if tree is balanced
+* @tree: root node of tree
+* Return: balance of tree
 */
 int binary_tree_balance(const binary_tree_t *tree)
 {

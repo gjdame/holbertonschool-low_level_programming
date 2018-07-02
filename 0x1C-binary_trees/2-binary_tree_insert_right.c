@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 /**
-*
-*
-*
-*
+* binary_tree_insert_right - insert node to the right
+* @parent: root node
+* @value: value of node
+* Return: address of new_node
 */
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {

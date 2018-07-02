@@ -1,9 +1,8 @@
 #include "binary_trees.h"
 /**
-*
-*
-*
-*
+* binary_tree_nodes - how many nodes on a tree
+* @tree: root node of tree
+* Return: number of nodes
 */
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
