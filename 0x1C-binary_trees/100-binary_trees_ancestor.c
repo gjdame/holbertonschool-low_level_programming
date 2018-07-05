@@ -6,16 +6,17 @@
  */
 size_t binary_tree_depth(const binary_tree_t *node)
 {
-        size_t depth;
+	size_t depth;
 
-        if (node == NULL)
-                return(0);
+	if (node == NULL)
+		return (0);
 
-        if (node->parent == NULL)
-                return(0);
-        depth = binary_tree_depth(node->parent);
-        depth++;
-        return (depth);
+	if (node->parent == NULL)
+		return (0);
+
+	depth = binary_tree_depth(node->parent);
+	depth++;
+	return (depth);
 }
 /**
  *
@@ -23,15 +24,13 @@ size_t binary_tree_depth(const binary_tree_t *node)
  *
  *
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+				     const binary_tree_t *second)
 {
 	size_t first_depth;
 	size_t second_depth;
 
-	if (first->parent == NULL)
-		return (NULL);
-
-	if (second->parent == NULL)
+	if (first->parent == NULL || second->parent == NULL)
 		return (NULL);
 
 	if (first->parent == second)
