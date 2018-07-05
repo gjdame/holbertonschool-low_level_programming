@@ -27,8 +27,8 @@ size_t binary_tree_depth(const binary_tree_t *node)
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second)
 {
-	binary_tree_t *first_node = (binary_tree_t*)first;
-	binary_tree_t *second_node = (binary_tree_t*)second;
+	binary_tree_t *first_node = (binary_tree_t *)first;
+	binary_tree_t *second_node = (binary_tree_t *)second;
 	size_t first_depth;
 	size_t second_depth;
 
