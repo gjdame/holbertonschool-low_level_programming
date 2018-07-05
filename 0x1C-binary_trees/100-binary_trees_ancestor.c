@@ -32,7 +32,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	size_t first_depth;
 	size_t second_depth;
 
-	if (first_node->parent == NULL || second_node->parent == NULL)
+	if (first_node == NULL || second_node == NULL)
 		return (NULL);
 
 	first_depth = binary_tree_depth(first_node);
