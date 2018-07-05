@@ -10,8 +10,11 @@ int binary_tree_balance(const binary_tree_t *tree)
 	int pos = 0;
 	int neg = 0;
 
+	if (tree == NULL)
+		return (0);
+
 	if (tree->right)
-		while(tree->right)
+		while (tree->right)
 		{
 			neg++;
 			tree = tree->right;
@@ -23,5 +26,5 @@ int binary_tree_balance(const binary_tree_t *tree)
 			root = root->left;
 		}
 
-	return(pos - neg);
+	return (pos - neg);
 }
