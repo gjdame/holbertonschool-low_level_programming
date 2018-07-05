@@ -19,10 +19,10 @@ size_t binary_tree_depth(const binary_tree_t *node)
 	return (depth);
 }
 /**
- *
- *
- *
- *
+ * binary_trees_ancestor - lowest common ancestor binary tree
+ * @first: pointer to first node
+ * @second: pointer to second node
+ * Return: lowest common ancestor
  */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 				     const binary_tree_t *second)
