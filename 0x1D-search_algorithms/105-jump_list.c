@@ -34,7 +34,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	listint_t *prev;
 
 	if (list == NULL)
-		return (list);
+		return (NULL);
 
 	block = sqrt((int)size);
 
