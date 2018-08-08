@@ -57,9 +57,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			printf("Value checked at index [%lu] = [%d]\n",
 			       prev->index, prev->n);
 			if (prev->n == value)
-				return(prev);
+				return (prev);
 			else
-				return(NULL);
+				return (NULL);
 		}
 
 		if (prev->n == value)
