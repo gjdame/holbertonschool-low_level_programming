@@ -5,19 +5,20 @@
  * @high: upper bound
  * @low: lower bound
  */
-void print_array(int *array, int high, int low)
+void print_array(int *array, size_t high, size_t low)
 {
-	printf("Searching in array: ");
+	if (low <= high)
+		printf("Searching in array: ");
 	if (low == high)
 	{
-		printf("%d\n", array[high]);
+		printf("%u\n", array[high]);
 		return;
 	}
 
-	while (low != high)
+	while (low <= high)
 	{
-		printf("%d", array[low]);
-		if (low + 1 != high)
+		printf("%u", array[low]);
+		if (low != high)
 			printf(", ");
 		low++;
 	}
@@ -32,30 +33,22 @@ void print_array(int *array, int high, int low)
  * @value: value to search for
  * Return: postion or -1 if not found
  */
-int b_search(int *array, int high, int low, int value)
+int b_search(int *array, size_t high, size_t low, int value)
 {
-	int mid;
+	int mid = low + (high - low) / 2;
 
-	if (high == low + 1)
-	{
-		print_array(array, high, low);
-		if (array[low] == value)
-			return (low);
-		return (-1);
-	}
 	print_array(array, high, low);
 
-	mid = (high + low) / 2;
 	if (array[mid] == value)
-	{
-		print_array(array, high, mid);
 		return (mid);
+	if (high >= low)
+	{
+		if (array[mid] > value)
+			return (b_search(array, mid - 1, low, value));
+		else
+			return (b_search(array, high, mid + 1, value));
 	}
-
-	if (array[mid] > value)
-		return (b_search(array, mid - 1, low, value));
-	else
-		return (b_search(array, high, mid, value));
+	return (-1);
 }
 /**
  * binary_search - binary search algorithm
@@ -71,6 +64,6 @@ int binary_search(int *array, size_t size, int value)
 	if (array == NULL)
 		return (-1);
 
-	ret = b_search(array, (int)size, 0, value);
+	ret = b_search(array, (int)size - 1, 0, value);
 	return (ret);
 }
