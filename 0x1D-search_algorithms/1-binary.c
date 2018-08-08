@@ -7,8 +7,9 @@
  */
 void print_array(int *array, size_t high, size_t low)
 {
-	if (low <= high)
-		printf("Searching in array: ");
+	if (low > high)
+		return;
+	printf("Searching in array: ");
 	if (low == high)
 	{
 		printf("%u\n", array[high]);
