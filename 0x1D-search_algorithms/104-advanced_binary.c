@@ -7,7 +7,7 @@
  */
 void print_array(int *array, size_t high, size_t low)
 {
-	if (low > high)
+	if (low >= high)
 		return;
 	printf("Searching in array: ");
 	if (low == high)
@@ -44,8 +44,10 @@ int b_search(int *array, size_t high, size_t low, int value)
 	{
 		print_array(array, mid, low);
 		if (array[mid] == array[mid - 1])
-			print_array(array, mid, mid - 1);
-			mid--;
+		{
+		 	print_array(array, mid, mid - 1);
+		 	mid--;
+		}
 
 		return (mid);
 	}
