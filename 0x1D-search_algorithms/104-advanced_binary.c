@@ -45,8 +45,8 @@ int b_search(int *array, size_t high, size_t low, int value)
 		print_array(array, mid, low);
 		if (array[mid] == array[mid - 1])
 		{
-		 	print_array(array, mid, mid - 1);
-		 	mid--;
+			print_array(array, mid, mid - 1);
+			mid--;
 		}
 
 		return (mid);
