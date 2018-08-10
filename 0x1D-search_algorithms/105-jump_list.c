@@ -44,7 +44,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		prev = runner;
 		runner = move(runner, block);
 		if (runner->next == NULL)
+		{
+			printf("Value checked at index [%lu] = [%d]\n", runner->index, runner->n);
 			break;
+		}
 		printf("Value checked at index [%lu] = [%d]\n",
 		       runner->index, runner->n);
 	}
@@ -57,9 +60,13 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			printf("Value checked at index [%lu] = [%d]\n",
 			       prev->index, prev->n);
 			if (prev->n == value)
+			{
 				return (prev);
+			}
 			else
+			{
 				return (NULL);
+			}
 		}
 
 		if (prev->n == value)
